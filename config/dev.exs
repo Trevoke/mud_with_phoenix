@@ -36,8 +36,8 @@ config :phoenix, :stacktrace_depth, 20
 # Configure your database
 config :mud, Mud.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "mud_phoenix",
+  password: "",
   database: "mud_dev",
   hostname: "localhost",
   pool_size: 10
