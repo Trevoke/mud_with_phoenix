@@ -26,3 +26,5 @@ erl_crash.dump
 web/elm/elm-stuff
 
 rel/mud
+
+.tern-port
