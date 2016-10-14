@@ -7406,13 +7406,72 @@ var _elm_lang$html$Html$summary = _elm_lang$html$Html$node('summary');
 var _elm_lang$html$Html$menuitem = _elm_lang$html$Html$node('menuitem');
 var _elm_lang$html$Html$menu = _elm_lang$html$Html$node('menu');
 
-var _user$project$Elm$main = {
-	main: _elm_lang$html$Html$text('Hello from Elm')
+var _elm_lang$html$Html_App$programWithFlags = _elm_lang$virtual_dom$VirtualDom$programWithFlags;
+var _elm_lang$html$Html_App$program = function (app) {
+	return _elm_lang$html$Html_App$programWithFlags(
+		_elm_lang$core$Native_Utils.update(
+			app,
+			{
+				init: function (_p0) {
+					return app.init;
+				}
+			}));
 };
+var _elm_lang$html$Html_App$beginnerProgram = function (_p1) {
+	var _p2 = _p1;
+	return _elm_lang$html$Html_App$programWithFlags(
+		{
+			init: function (_p3) {
+				return A2(
+					_elm_lang$core$Platform_Cmd_ops['!'],
+					_p2.model,
+					_elm_lang$core$Native_List.fromArray(
+						[]));
+			},
+			update: F2(
+				function (msg, model) {
+					return A2(
+						_elm_lang$core$Platform_Cmd_ops['!'],
+						A2(_p2.update, msg, model),
+						_elm_lang$core$Native_List.fromArray(
+							[]));
+				}),
+			view: _p2.view,
+			subscriptions: function (_p4) {
+				return _elm_lang$core$Platform_Sub$none;
+			}
+		});
+};
+var _elm_lang$html$Html_App$map = _elm_lang$virtual_dom$VirtualDom$map;
+
+var _user$project$App$subscriptions = function (model) {
+	return _elm_lang$core$Platform_Sub$none;
+};
+var _user$project$App$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return {ctor: '_Tuple2', _0: 'Hello World!', _1: _elm_lang$core$Platform_Cmd$none};
+	});
+var _user$project$App$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$h1,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				_elm_lang$html$Html$text(model)
+			]));
+};
+var _user$project$App$init = {ctor: '_Tuple2', _0: 'Hello', _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$App$main = {
+	main: _elm_lang$html$Html_App$program(
+		{init: _user$project$App$init, view: _user$project$App$view, update: _user$project$App$update, subscriptions: _user$project$App$subscriptions})
+};
+var _user$project$App$HelloWorld = {ctor: 'HelloWorld'};
 
 var Elm = {};
-Elm['Elm'] = Elm['Elm'] || {};
-_elm_lang$core$Native_Platform.addPublicModule(Elm['Elm'], 'Elm', typeof _user$project$Elm$main === 'undefined' ? null : _user$project$Elm$main);
+Elm['App'] = Elm['App'] || {};
+_elm_lang$core$Native_Platform.addPublicModule(Elm['App'], 'App', typeof _user$project$App$main === 'undefined' ? null : _user$project$App$main);
 
 if (typeof define === "function" && define['amd'])
 {

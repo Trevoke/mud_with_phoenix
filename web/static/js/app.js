@@ -21,4 +21,4 @@ import "phoenix_html";
 // import socket from "./socket"
 
 const elmDiv = document.querySelector("#elm-main");
-const elmApp = Elm.Elm.embed(elmDiv);
+const elmApp = Elm.App.embed(elmDiv);
