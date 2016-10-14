@@ -1,26 +1,56 @@
 module App exposing (..)
 
-import Html exposing (Html, h1, text)
+import Html exposing (Html, h1, text, button, input, form, ul, li, div)
 import Html.App
 
-type alias Model = String
+type alias Model =
+    {
+        input : String,
+        logLines : List String
+    }
 
 init : ( Model, Cmd Msg )
 init =
-  ( "Hello", Cmd.none )
+    let
+        model =
+            {
+              input = ""
+            , logLines = ["Test log line"]
+            }
+    in
+        ( model, Cmd.none )
 
 type Msg =
     HelloWorld
 
 view : Model -> Html Msg
 view model =
-  h1 [] [ text model ]
+    let
+        drawLogLines logLines =
+            logLines |> List.map drawLogLine
+    in
+  div [] [
+    ul [] (model.logLines |> drawLogLines),
+    form [] [
+     input [] [
+     ],
+     button [] [
+       text "Submit"
+     ]
+    ]
+  ]
+
+drawLogLine : String -> Html Msg
+drawLogLine logLine =
+    li [] [
+         text logLine
+        ]
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
   case msg of
     HelloWorld ->
-      ( "Hello World!", Cmd.none )
+      ( model, Cmd.none )
 
 subscriptions : Model -> Sub Msg
 subscriptions model =

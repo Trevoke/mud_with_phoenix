@@ -7450,23 +7450,72 @@ var _user$project$App$subscriptions = function (model) {
 var _user$project$App$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		return {ctor: '_Tuple2', _0: 'Hello World!', _1: _elm_lang$core$Platform_Cmd$none};
+		return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 	});
-var _user$project$App$view = function (model) {
+var _user$project$App$drawLogLine = function (logLine) {
 	return A2(
-		_elm_lang$html$Html$h1,
+		_elm_lang$html$Html$li,
 		_elm_lang$core$Native_List.fromArray(
 			[]),
 		_elm_lang$core$Native_List.fromArray(
 			[
-				_elm_lang$html$Html$text(model)
+				_elm_lang$html$Html$text(logLine)
 			]));
 };
-var _user$project$App$init = {ctor: '_Tuple2', _0: 'Hello', _1: _elm_lang$core$Platform_Cmd$none};
+var _user$project$App$view = function (model) {
+	var drawLogLines = function (logLines) {
+		return A2(_elm_lang$core$List$map, _user$project$App$drawLogLine, logLines);
+	};
+	return A2(
+		_elm_lang$html$Html$div,
+		_elm_lang$core$Native_List.fromArray(
+			[]),
+		_elm_lang$core$Native_List.fromArray(
+			[
+				A2(
+				_elm_lang$html$Html$ul,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				drawLogLines(model.logLines)),
+				A2(
+				_elm_lang$html$Html$form,
+				_elm_lang$core$Native_List.fromArray(
+					[]),
+				_elm_lang$core$Native_List.fromArray(
+					[
+						A2(
+						_elm_lang$html$Html$input,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[])),
+						A2(
+						_elm_lang$html$Html$button,
+						_elm_lang$core$Native_List.fromArray(
+							[]),
+						_elm_lang$core$Native_List.fromArray(
+							[
+								_elm_lang$html$Html$text('Submit')
+							]))
+					]))
+			]));
+};
+var _user$project$App$init = function () {
+	var model = {
+		input: '',
+		logLines: _elm_lang$core$Native_List.fromArray(
+			['Test log line'])
+	};
+	return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+}();
 var _user$project$App$main = {
 	main: _elm_lang$html$Html_App$program(
 		{init: _user$project$App$init, view: _user$project$App$view, update: _user$project$App$update, subscriptions: _user$project$App$subscriptions})
 };
+var _user$project$App$Model = F2(
+	function (a, b) {
+		return {input: a, logLines: b};
+	});
 var _user$project$App$HelloWorld = {ctor: 'HelloWorld'};
 
 var Elm = {};

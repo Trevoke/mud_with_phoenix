@@ -3,6 +3,7 @@ defmodule Mud.UserSocket do
 
   ## Channels
   # channel "room:*", Mud.RoomChannel
+  channel "room:lobby", Mud.RoomChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket
