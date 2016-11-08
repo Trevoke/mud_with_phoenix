@@ -12,6 +12,7 @@ defmodule Mud do
       supervisor(Mud.Repo, []),
       # Start the endpoint when the application starts
       supervisor(Mud.Endpoint, []),
+      supervisor(Mud.Rooms, [])
       # Start your own worker by calling: Mud.Worker.start_link(arg1, arg2, arg3)
       # worker(Mud.Worker, [arg1, arg2, arg3]),
     ]
