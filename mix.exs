@@ -19,7 +19,7 @@ defmodule Mud.Mixfile do
   def application do
     [mod: {Mud, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :comeonin]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,8 @@ defmodule Mud.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
-     {:distillery, "~> 0.9"}]
+     {:distillery, "~> 0.9"},
+     {:comeonin_ecto_password, git: "git@github.com:vic/comeonin_ecto_password.git", branch: "ecto-2.x"}]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
