@@ -1,4 +1,4 @@
-defmodule Mud.Room do
+defmodule Mud.RoomProc do
   use GenServer
 
   def start_link(%{id: id} = args) do

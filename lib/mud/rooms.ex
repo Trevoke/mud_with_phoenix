@@ -8,7 +8,7 @@ defmodule Mud.Rooms do
   def init(:ok) do
     :ets.new(:rooms, [:named_table, {:read_concurrency, true}])
     children = [
-      worker(Mud.Room,
+      worker(Mud.RoomProc,
         [
           %{description: "Room 1",
             id: 1,
@@ -16,7 +16,7 @@ defmodule Mud.Rooms do
         ],
         restart: :permanent,
         id: 1),
-      worker(Mud.Room,
+      worker(Mud.RoomProc,
         [
           %{description: "Room 2",
             id: 2,
