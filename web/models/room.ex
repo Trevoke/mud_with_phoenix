@@ -1,8 +1,9 @@
 defmodule Mud.Room do
   use Mud.Web, :model
 
+  @primary_key {:id, :binary_id, autogenerate: true}
+
   schema "rooms" do
-    @primary_key {:id, :binary_id, autogenerate: true}
     field :description, :string
     field :exits, :map
 
