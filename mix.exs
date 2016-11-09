@@ -39,7 +39,8 @@ defmodule Mud.Mixfile do
      {:gettext, "~> 0.11"},
      {:cowboy, "~> 1.0"},
      {:distillery, "~> 0.9"},
-     {:comeonin_ecto_password, git: "git@github.com:vic/comeonin_ecto_password.git", branch: "ecto-2.x"}]
+     {:comeonin_ecto_password, git: "git@github.com:vic/comeonin_ecto_password.git", branch: "ecto-2.x"},
+    ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.
